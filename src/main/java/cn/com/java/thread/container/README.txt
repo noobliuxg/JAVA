@@ -1,0 +1,14 @@
+1、jdk对容器的扩展：
+	并发容器：
+			对map的扩展：ConcurrentHashMap（16个段，分别加锁来实现高性能）、
+			对Collection的扩展:CopyOnWriteArrayList/CopyOnWriteArraySet（适用：读多写少，采用：添加元素就copy新的容器并重新指向新的容器）
+			对Queque的扩展：ConcurrentLinkedQueue（高效无阻塞的Queque）、BlockingQueue（，阻塞的Queque）
+					BlockingQueue几个主要的实现类：
+						ArrayBlockingQueue：基于数组实现的又缓冲的阻塞队列，且必须指明队列的大小，生成和消费不能并发执行
+		  					原理：内部维护一个定长数组，且没有实现读写分离，故不能做到生成和消费并发执行，
+		  				LinkedBlockingQueue：基于链表实现的有缓冲的阻塞队列，且不必指明队列的大小
+		  					原理：内部维护一个链表接口，且实现了读写分离锁，故能做到生成和消费并发执行
+		  				SynchronousQueue：一个没有缓冲的队列，必须是实时地生成和消费
+		  				PriorityBlockingQueue<Object必须实现Compont接口>：基于优先集的阻塞队列，
+		  					原理：内部采用的是一种公平锁，在取出元素时进行排序，而不是在运行时
+		  				DelayQueue<Object必须实现Delayed接口>：一个带有延迟时间的Queque，即延迟时间到了，才能从队列中拿出元素

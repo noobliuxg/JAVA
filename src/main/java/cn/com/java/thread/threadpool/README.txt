@@ -1,0 +1,7 @@
+线程池框架：Executor：jdk开发出来的一套帮组开发人员对线程有效地进行控制的框架。所在位置：java.util.concurrent包下。
+分类：
+	newFixedThreadPool：返回一个固定数量线程的线程池，该线程池的线程数始终不变。
+	newSingleThreadExecutor：创建一个线程的线程池，若空闲则执行，若没有空闲线程则暂缓在任务列队中
+	newCachedThreadPool：返回一个可根据实际情况调整线程个数的线程池。若无任务可执行，则不创建线程，若果没有任务则线程在60
+s后自动回收线程。
+	newScheduledThreadPool：该方法返回一个ScheddExecuteService对象ThreadPoolExecutor ，但该线程可以指定线程的数量
